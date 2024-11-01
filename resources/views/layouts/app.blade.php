@@ -43,7 +43,7 @@
         <!-- Content area -->
         <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden {{ $attributes['background'] ?? '' }}" x-ref="contentarea">
 
-            <x-app.header :variant="$headerVariant" /> <!-- Pastikan ini dikirim dari controller -->
+            <x-app.header :variant="$headerVariant ?? 'dark'" " /> <!-- Pastikan ini dikirim dari controller -->
 
             <main class="grow">
                 {{ $slot }}

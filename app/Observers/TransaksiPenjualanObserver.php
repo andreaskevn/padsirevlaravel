@@ -23,7 +23,7 @@ class TransaksiPenjualanObserver
     protected function updateMemberTier($pelanggan)
     {
         $member = Member::find($pelanggan->id_member);
-        if ($pelanggan->progressTransaksi >= $member->batas_bawah_member) {
+        if ($pelanggan->progressTransaksi >= $member->batas_atas_member) {
             $pelanggan->id_member = $member->id; // Ubah id_member sesuai tier baru
             $pelanggan->save();
         }
