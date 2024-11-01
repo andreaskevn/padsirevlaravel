@@ -29,38 +29,30 @@
         </script>
     </head>
     <body
-        class="font-inter antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
-        :class="{ 'sidebar-expanded': sidebarExpanded }"
-        x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
-        x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"    
-    >
+    class="font-inter antialiased bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
+    :class="{ 'sidebar-expanded': sidebarExpanded }"
+    x-data="{ sidebarOpen: false, sidebarExpanded: localStorage.getItem('sidebar-expanded') == 'true' }"
+    x-init="$watch('sidebarExpanded', value => localStorage.setItem('sidebar-expanded', value))"    
+>
 
-        <script>
-            if (localStorage.getItem('sidebar-expanded') == 'true') {
-                document.querySelector('body').classList.add('sidebar-expanded');
-            } else {
-                document.querySelector('body').classList.remove('sidebar-expanded');
-            }
-        </script>
+    <!-- Page wrapper -->
+    <div class="flex h-[100dvh] overflow-hidden">
 
-        <!-- Page wrapper -->
-        <div class="flex h-[100dvh] overflow-hidden">
+        <x-app.sidebar :variant="$sidebarVariant" /> Pastikan ini dikirim dari controller
 
-            <x-app.sidebar :variant="$attributes['sidebarVariant']" />
+        <!-- Content area -->
+        <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden {{ $attributes['background'] ?? '' }}" x-ref="contentarea">
 
-            <!-- Content area -->
-            <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden @if($attributes['background']){{ $attributes['background'] }}@endif" x-ref="contentarea">
+            <x-app.header :variant="$headerVariant" /> <!-- Pastikan ini dikirim dari controller -->
 
-                <x-app.header :variant="$attributes['headerVariant']" />
-
-                <main class="grow">
-                    {{ $slot }}
-                </main>
-
-            </div>
+            <main class="grow">
+                {{ $slot }}
+            </main>
 
         </div>
 
-        @livewireScriptConfig
-    </body>
+    </div>
+
+    @livewireScriptConfig
+</body>
 </html>

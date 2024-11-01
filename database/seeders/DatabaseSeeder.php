@@ -17,6 +17,15 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             DashboardTableSeeder::class,
+            RoleTableSeeder::class,
+            UserTableSeeder::class,
+            MenuTableSeeder::class,
+            BahanBakuTableSeeder::class,
+            MemberTableSeeder::class,
+            PelangganTableSeeder::class,
+            TransaksiPenjualanTableSeeder::class,
+            TransaksiPembelianTableSeeder::class,
+            DetailTransaksiPembelianTableSeeder::class
         ]);
     }
 }

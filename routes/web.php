@@ -10,6 +10,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\TransaksiPenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,4 +195,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::fallback(function() {
         return view('pages/utility/404');
     });    
+    Route::resource('transaksi_penjualans', TransaksiPenjualanController::class);
 });
