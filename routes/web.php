@@ -196,4 +196,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         return view('pages/utility/404');
     });    
     Route::resource('transaksi_penjualans', TransaksiPenjualanController::class);
+    Route::get('/transaksi_penjualans/create', [TransaksiPenjualanController::class, 'create'])->name('transaksi_penjualans.create');
+    Route::post('/transaksi_penjualans', [TransaksiPenjualanController::class, 'index']);
+    Route::get('/transaksi_penjualans/show', [TransaksiPenjualanController::class, 'show'])->name('transaksi_penjualans.show');
 });

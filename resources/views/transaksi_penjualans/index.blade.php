@@ -56,7 +56,7 @@
             <x-app.header :variant="$headerVariant ?? 'dark'" />
 
             <main class="grow">
-                {{ $slot }}
+                {{ $content }}
             </main>
 
         </div>

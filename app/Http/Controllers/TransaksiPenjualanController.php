@@ -17,21 +17,22 @@ class TransaksiPenjualanController extends Controller
         $background = 'bg-gray-100'; // atau kelas lain sesuai kebutuhan
         $sidebarVariant = 'dark';
         $headerVariant = 'light';
+        $variant = 'dark';
+        $background = 'bg-white-100';
 
-        return view('transaksi_penjualans.index', compact('background', 'sidebarVariant', 'headerVariant', 'transaksi_penjualans'));
+        return view('transaksi_penjualans', compact('background', 'sidebarVariant', 'headerVariant', 'transaksi_penjualans', 'veriant', 'background'));
     }
 
     // Menampilkan form untuk membuat transaksi penjualan baru
     public function create()
     {
         // Variabel untuk pengaturan sidebar, header, dan background
-        $attributes = [
-            $sidebarVariant => 'light',  // Ganti dengan nilai yang sesuai
-            $headerVarian => 'dark',    // Ganti dengan nilai yang sesuai
-            $background => 'bg-white-100',       // Ganti dengan nilai yang sesuai
-        ];
+            $sidebarVariant = 'light'; // Ganti dengan nilai yang sesuai
+            $headerVariant = 'dark';   // Ganti dengan nilai yang sesuai
+            $background = 'bg-white-100';       // Ganti dengan nilai yang sesuai
+            $variant = 'dark';
 
-        return view('transaksi_penjualans.create', compact('attributes'));
+        return view('transaksi_penjualans.create', compact('background', 'sidebarVariant', 'headerVariant', 'variant'));
     }
 
     // Menyimpan transaksi penjualan baru

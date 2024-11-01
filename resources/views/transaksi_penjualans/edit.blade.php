@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<x-app.header>
 <div class="container">
     <h1>Edit Transaksi Penjualan</h1>
     <form action="{{ route('transaksi_penjualans.update', $transaksiPenjualan->id) }}" method="POST">
@@ -18,4 +19,5 @@
         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
     </form>
 </div>
+<x-app.header>
 @endsection
